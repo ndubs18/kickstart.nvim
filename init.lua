@@ -286,6 +286,17 @@ require('lazy').setup({
     },
   },
 
+  {
+    'andweeb/presence.nvim',
+    opts = {
+      auto_update = true,
+      show_time = false,
+      main_image = 'neovim',
+      log_level = 'debug',
+      neovim_image_text = 'The Text Editor',
+    },
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
