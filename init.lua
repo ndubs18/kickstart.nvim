@@ -267,6 +267,14 @@ require('lazy').setup({
     },
   },
 
+  {
+    'Djancyp/better-comments.nvim',
+  },
+
+  {
+    'craftzdog/solarized-osaka.nvim',
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -834,13 +842,14 @@ require('lazy').setup({
       }
     end,
   },
-
+  --[[
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
+
+   'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
@@ -850,6 +859,16 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+    end,
+  },
+]]
+  --
+
+  {
+    'craftzdog/solarized-osaka.nvim',
+    priority = 1001,
+    init = function()
+      vim.cmd.colorscheme 'solarized-osaka'
     end,
   },
 
@@ -962,6 +981,5 @@ require('lazy').setup({
     },
   },
 })
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
