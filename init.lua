@@ -234,6 +234,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
 })
 
+-- Autocommand because we need to set the blink.cmp
+-- signature help background colork
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  callback = function()
+    vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = '#1E2324', fg = '#6d71c4' })
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -303,10 +312,6 @@ require('lazy').setup({
 
   {
     'Djancyp/better-comments.nvim',
-  },
-
-  {
-    'craftzdog/solarized-osaka.nvim',
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -839,6 +844,9 @@ require('lazy').setup({
   {
     'craftzdog/solarized-osaka.nvim',
     priority = 1001,
+    config = function()
+      require('solarized-osaka').setup {}
+    end,
     init = function()
       vim.cmd.colorscheme 'solarized-osaka'
     end,
