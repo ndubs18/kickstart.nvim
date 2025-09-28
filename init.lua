@@ -150,8 +150,8 @@ vim.o.splitbelow = true
 --   and `:help lua-options-guide`
 vim.o.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.tabStop = 2
-vim.opt.shiftWidth = 2
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
