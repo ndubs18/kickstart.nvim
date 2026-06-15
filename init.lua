@@ -241,9 +241,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- signature help background colork
 vim.api.nvim_create_autocmd('ColorScheme', {
   pattern = '*',
-  callback = function()
-    vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = '#1E2324', fg = '#6d71c4' })
-  end,
+  callback = function() vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = '#1E2324', fg = '#6d71c4' }) end,
 })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
@@ -512,6 +510,7 @@ require('lazy').setup({
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
       { 'mason-org/mason.nvim', opts = {} },
+      { 'mason-org/mason-lspconfig.nvim', opts = {} },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
@@ -846,12 +845,8 @@ require('lazy').setup({
   {
     'craftzdog/solarized-osaka.nvim',
     priority = 1001,
-    config = function()
-      require('solarized-osaka').setup {}
-    end,
-    init = function()
-      vim.cmd.colorscheme 'solarized-osaka'
-    end,
+    config = function() require('solarized-osaka').setup {} end,
+    init = function() vim.cmd.colorscheme 'solarized-osaka' end,
   },
 
   -- Highlight todo, notes, etc in comments
